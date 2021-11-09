@@ -1,9 +1,10 @@
-import java.util.function.BiPredicate;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import interfaces.PureFunctionalInterface;
 
-public class Main {
+import java.util.function.*;
+
+import static interfaces.PureFunctionalInterface.*;
+
+public class Main{
 
     //imperative programming style predicate
     public static boolean stringedPredicate2 (String sen1){
@@ -35,12 +36,28 @@ public class Main {
             return name.startsWith("P") && hasHair;
         };
 
+        Function<String, Boolean> stringFunction = (names)->{
+            return  names.startsWith("P");
+        };
 
+        Function<String, Boolean> stringFunction1 = (names)->{
+            return  names.startsWith("P");
+        };
+
+
+
+
+        System.out.println(stringFunction.apply("Paloma"));//our functional program
+//        PureFunctionalInterface pureFunctionalInterface = new Main();
+        String name =  "Pablowww";
+        Boolean result =  PureFunctionalInterface.isName(name).and(lengthOfName(name)).apply(name);
+        System.out.println(result+"here");// the in-built functional program
         stringConsumer.accept("BLAHBLAHBLAH");
-        System.out.println(isBoy.test("Paulo", true));
+        System.out.println(isBoy.test("Paulo", false));
         System.out.println(stringedPredicate.test("blahblahblah"));
         System.out.println(stringSupplier.get());
         System.out.println(stringedPredicate2("blahblahblah"));
 
     }
+
 }
