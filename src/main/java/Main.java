@@ -1,3 +1,4 @@
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -30,8 +31,13 @@ public class Main {
             System.out.println(sensei.toLowerCase());
         };
 
+        BiPredicate<String, Boolean> isBoy = (name, hasHair) -> {
+            return name.startsWith("P") && hasHair;
+        };
+
 
         stringConsumer.accept("BLAHBLAHBLAH");
+        System.out.println(isBoy.test("Paulo", true));
         System.out.println(stringedPredicate.test("blahblahblah"));
         System.out.println(stringSupplier.get());
         System.out.println(stringedPredicate2("blahblahblah"));
