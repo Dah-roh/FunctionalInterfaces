@@ -1,8 +1,10 @@
 import interfaces.PureFunctionalInterface;
+import interfaces.PureTriFunctionalInterface;
 
 import java.util.function.*;
 
 import static interfaces.PureFunctionalInterface.*;
+import static interfaces.PureTriFunctionalInterface.*;
 
 public class Main{
 
@@ -49,9 +51,16 @@ public class Main{
 
         System.out.println(stringFunction.apply("Paloma"));//our functional program
 //        PureFunctionalInterface pureFunctionalInterface = new Main();
-        String name =  "Pablowww";
-        Boolean result =  PureFunctionalInterface.isName(name).and(lengthOfName(name)).apply(name);
-        System.out.println(result+"here");// the in-built functional program
+        String name =  "Pablo@www";
+        String result =  PureFunctionalInterface.lengthOfName().and(isName()).apply(name);
+        String word = "I";
+        String word2 = "we are boys";
+        String word3 = "are we the boys?";
+        Integer resultForTheTriFunctionImpl2 = PureTriFunctionalInterface.combineString().and(addFifty(combineString())).apply(word, word, word);
+        System.out.println(resultForTheTriFunctionImpl2);
+        Integer resultForTheTriFunctionImpl = PureTriFunctionalInterface.addFifty(combineString()).apply(word,word,word);
+        System.out.println(resultForTheTriFunctionImpl);
+        System.out.println(result);// the in-built functional program
         stringConsumer.accept("BLAHBLAHBLAH");
         System.out.println(isBoy.test("Paulo", false));
         System.out.println(stringedPredicate.test("blahblahblah"));

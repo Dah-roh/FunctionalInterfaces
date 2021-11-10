@@ -2,19 +2,20 @@ package interfaces;
 
 import java.util.function.Function;
 import static interfaces.PureFunctionalInterface.*;
-public interface PureFunctionalInterface extends Function<String, Boolean> {
-    static PureFunctionalInterface isName(String name) {
-        return pure-> name.contains("P");
+public interface PureFunctionalInterface extends Function<String, String> {
+    static PureFunctionalInterface isName() {
+        return pure -> pure.contains("@") ? "your name is not correct": lengthOfName().apply(pure);
     }
 
-    static PureFunctionalInterface lengthOfName (String name) {
-        return pure-> name.length()<15;
+    static PureFunctionalInterface lengthOfName () {
+        return pure-> "Your name is correct";
+
     }
 
     default PureFunctionalInterface and (PureFunctionalInterface anotherFunction) {
-        return name -> isName(name).apply(name).equals(true) ? anotherFunction.apply(name) : isName(name).apply(name);
+        return name -> name.contains("not")? anotherFunction.apply(name) : anotherFunction.apply(name);
     }
 
     @Override
-    Boolean apply(String s);
+    String apply(String s);
 }
