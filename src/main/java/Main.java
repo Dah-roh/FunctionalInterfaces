@@ -50,8 +50,12 @@ public class Main {
 
         //Implementation of the PureFunctional interface for NIO
         String result = PureFunctionalInterface
-                .readFromFile()
-                .and(readFromFile())
+//                .readFromFile()
+//                .and(readFromFile())                              /*REMOVE COMMENT TO USE IT*/
+//                .apply("src/main/resources/ReadThisFile");
+
+                                                                  /*ADD COMMENT TO LINE BELOW TO USE THE ABOVE COMMENTED OUT CODE*/
+                .with(readFromFile())
                 .apply("src/main/resources/ReadThisFile");
 
         String word = "I";

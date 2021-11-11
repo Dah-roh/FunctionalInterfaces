@@ -48,6 +48,10 @@ public interface PureFunctionalInterface extends Function<String, String> {
         return pure -> writeToFile().apply(anotherFunction.apply(pure));
     }
 
+    static PureFunctionalInterface with (PureFunctionalInterface anotherFunction) {
+        return pure -> anotherFunction.apply(pure);
+    }
+
     @Override
     String apply(String s);
 }
