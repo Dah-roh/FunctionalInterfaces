@@ -12,14 +12,6 @@ import java.util.List;
 import java.util.function.Function;
 import static interfaces.PureFunctionalInterface.*;
 public interface PureFunctionalInterface extends Function<String, String> {
-//    static PureFunctionalInterface isName() {
-//        return pure -> pure.contains("@") ? "your name is not correct": lengthOfName().apply(pure);
-//    }
-
-//    static PureFunctionalInterface lengthOfName () {
-//        return pure-> "Your name is correct";
-//
-//    }
 
     static PureFunctionalInterface readFromFile() {
         return pure -> {

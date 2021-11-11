@@ -10,16 +10,12 @@ public class Main {
 
     //imperative programming style predicate
     public static boolean stringedPredicate2 (String sen1){
-        if(sen1.length()>10){
-            return true;
-        }
-        return false;
+        return sen1.length() > 10;
     }
 
     //imperative programming style supplier
 
     public static void main(String[] args) {
-//        String namdesu = "";
         //declarative programming style
         Predicate<String> stringedPredicate = sen->{
             return sen.length() > 10;
@@ -38,9 +34,7 @@ public class Main {
             return name.startsWith("P") && hasHair;
         };
 
-        Function<String, Boolean> stringFunction = (names)->{
-            return  names.startsWith("P");
-        };
+        Function<String, Boolean> stringFunction = names-> names.startsWith("P");
 
         Function<String, Boolean> stringFunction1 = (names)->{
             return  names.startsWith("P");
@@ -50,14 +44,17 @@ public class Main {
 
 
         System.out.println(stringFunction.apply("Paloma"));//our functional program
-//        PureFunctionalInterface pureFunctionalInterface = new Main();
+
         String name =  "Pablo@www";
 
-//        String result =  PureFunctionalInterface.lengthOfName().and(isName()).apply(name);
-        String result = PureFunctionalInterface.readFromFile().and(readFromFile()).apply("src/main/resources/ReadThisFile");
+
+        //Implementation of the PureFunctional interface for NIO
+        String result = PureFunctionalInterface
+                .readFromFile()
+                .and(readFromFile())
+                .apply("src/main/resources/ReadThisFile");
+
         String word = "I";
-        String word2 = "we are boys";
-        String word3 = "are we the boys?";
 
         Integer resultForTheTriFunctionImpl2 = PureTriFunctionalInterface
                 .combineString()
